@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<script>
+
+function absoluteValuesSumMinimization1(a) { // Mitad
+    var suma = 0;
+    a.forEach(function(e){
+        //console.log(e);
+        suma += e;
+    });
+
+    return Math.floor(suma / 2);
+
+    
+
+}
+
+function absoluteValuesSumMinimization2(a) { // Mediana
+    
+    var isEven = a.length % 2 === 0;
+    
+    if (isEven === true) {
+        console.log('sb1');
+        return a[(a.length / 2 ) - 1];
+    }
+    else {
+        return a[Math.floor(a.length / 2)];
+    }
+}
+
+
+ console.log(absoluteValuesSumMinimization1([2, 4, 7]));
+ console.log(absoluteValuesSumMinimization1([2, 4, 7, 6])); 
+ console.log(absoluteValuesSumMinimization1([2, 4, 7, 6, 6])); 
+ console.log(absoluteValuesSumMinimization1([2, 4, 7, 6, 6, 8])); 
+
+ // Resultados Mitad - 6, 9, 12, 16
+ // Resultados Mediana - 4, 4, 7, 7
+                                        
+
+</script>
+
+</body>
+</html>
