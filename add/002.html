@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+
+
+
+function add(...sb1item)  { // Añadido: Lo metemos en una funcion para comodidad de console.log
+    var suma = 0;
+    
+    sb1item.forEach(item => { // el grueso que hace la suma
+        suma += item;
+    });
+    return suma;
+}
+
+
+ 
+ console.log(add(3, 2));
+
+ console.log(add(1,2,3,4,5));
+ console.log(add(2,3));
+
+
+
+/* Es CORRECTO - PERO 
+ * console.log suma muestra la suma correctamente (27)
+ * console total muestra 'undefined'
+ * 
+let sb1 = [9, 9, 9];
+function add(item)  {
+    
+    
+        suma += item;
+        console.log(suma);
+    
+}
+
+var total = sb1.forEach(add);
+//console.log(total);
+
+*/
+
+
+
+
+
+/* Forma SIMPLE para sumar números a partir de un array
+ *
+ *
+ * 
+ let sb1 = [9, 9, 9];
+// Suma de todos los números insertados en un array -> add([1, 2, 3, 4])
+function add(a )  {
+    let suma = 0;
+    for (let i = 0;i<a.length;i++){
+        suma += a[i];
+    }
+    return suma;
+}
+*/
+// function add2(param1: number[]): number {
+
+// }
+
+ //console.log(add([1, 2, 3, 4]));
+// console.log(add(3, 2));
+
+// console.log(add2(1,2,3,4,5));
+// console.log(add2(2,3));
+
+                                   
+
+</script>
+
+</body>
+</html>
