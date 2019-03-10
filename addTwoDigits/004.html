@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+    /*
+You are given a two-digit integer n. Return the sum of its digits.
+
+**Example**
+
+For n = 29, the output should be
+addTwoDigits(n) = 11.
+
+**Hint**
+-   split()
+-   parseInt()
+-   toString()
+-   reduce()
+*/
+
+
+
+                                   
+function addTwoDigits(n) {
+n = n.toString(); // Convertir en String
+//console.log(typeof n);
+
+ne = n.split(""); // Separar String en Array ["9", "9"]
+let newN = ne.map((x) => parseInt(x)); // Convertir en Num, uno a uno
+//console.log(newN);
+
+let result = newN.reduce((bota, botitem) => 
+    bota + botitem
+    );
+
+return result;
+
+}
+//let sb1 = 99;
+//sb1 = sb1.toString(); // Convierte en STRING [Lo que queremos]
+//parseInt(99); // Convierte en Integer
+
+console.log(addTwoDigits(99));
+console.log(addTwoDigits(9999));
+
+</script>
+
+</body>
+</html>
