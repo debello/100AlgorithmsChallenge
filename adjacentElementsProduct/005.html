@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+    /*
+    Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
+
+    **Example**
+
+    For inputArray = [3, 6, -2, -5, 7, 3], the output should be
+    adjacentElementsProduct(inputArray) = 21.
+
+    7 and 3 produce the largest product.
+    */
+
+    function adjacentElementsProduct(inputArray)  {
+        //let array2 = [];
+        //for (let i = 0; i < inputArray.length - 1; i++){
+        //    array2[i] = (inputArray[i] * inputArray[i+1]);
+            
+        //}
+
+        let array2 = inputArray.map ((x, index, arr) => x*arr[index+1]); //[!] Creará NaN
+        array2.pop(); // Quitamos NAN
+        console.log(array2);
+        maxProduct = Math.max(...array2);
+        console.log(maxProduct);
+        var maxProdKey = Object.keys(array2).find(key => array2[key] === maxProduct);
+        console.log(maxProdKey);
+        maxProdKey = parseInt(maxProdKey);
+
+
+        console.log(typeof maxProdKey);
+        return "From array: " + inputArray + "\nMax Product (adjacent) posible: " + maxProduct + 
+                "\nWith pairs: " + inputArray[maxProdKey] + " and " +
+                inputArray[maxProdKey + 1];
+
+        
+        //console.log(array2['MaxProduct']);
+        
+
+
+    }
+
+    console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3]));
+    console.log(adjacentElementsProduct([1, 2, 3, 4, 5]));
+
+                                   
+
+
+</script>
+
+</body>
+</html>
