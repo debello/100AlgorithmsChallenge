@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+    /*
+    Given a rectangular matrix of characters, add a border of asterisks(*) to it.
+
+**Example**
+
+For
+
+    picture = ["abc",
+           "ded"]
+the output should be
+
+    addBorder(picture) = ["*****",
+                      "*abc*",
+                      "*ded*",
+                      "*****"]
+
+**Hints**
+-   concat()
+-   unshift()
+-   push()
+*/
+
+
+
+function addBorder(picture){ // comment example with parameter "abc" , "ded"
+    let pictureTotalLen = picture[0].length + 2; 
+    let asterisk = "*";
+    
+
+    let newPicture = picture.map( pic => asterisk.concat(pic, asterisk)); // Inserto * en abc y def (*abc*, *def*)
+    
+    let fiveAsterisks = asterisk.repeat(pictureTotalLen); // Create 5 asterisks
+    
+    newPicture.unshift(fiveAsterisks); // Inserto **** al principio del array *abc* *def*
+    newPicture.push(fiveAsterisks); // Inserto... al final del array... .
+    return newPicture; 
+}
+
+// NOTA [!] usar matrices RECTANGULARES (2x3, 3x4 etc)
+console.log(addBorder(["abc", "ded"]));
+console.log(addBorder(["ab", "de"]));
+console.log(addBorder(["abcd", "defg"]));
+console.log(addBorder(["a", "b", "c"]));
+
+                                   
+
+</script>
+
+</body>
+</html>
