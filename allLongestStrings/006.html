@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+    /*
+
+    Given an array of strings, return another array containing all of its longest strings.
+
+    **Example**
+
+    For inputArray = ["aba", "aa", "ad", "vcd", "aba"], the output should be
+    allLongestStrings(inputArray) = ["aba", "vcd", "aba"].
+
+    */
+    function allLongestStrings(inArr) {
+    
+        let inArrLengths = inArr.map((curr, ind, arr) => 
+                                                    curr = inArr[ind].length) // crear y pasar [inArr] a [3, 2, 2, 3, 3]
+        let maxLength = Math.max(...inArrLengths); // Escoger el máximo (3)
+        //console.log(sb1, sb2); // [3, 2, 2, 3, 3] - 3
+        
+        let inArrMaxLength = inArr.filter((el) =>
+                                    el.length == maxLength);
+        //console.log(sb3);
+
+        return inArrMaxLength;
+    }
+
+    console.log(allLongestStrings(["aba", "aa", "ad", "vcd", "aba"]));
+    console.log(allLongestStrings(["abax", "xaa", "xxxad", "xvcd", "a"]));
+    console.log(allLongestStrings(["abxxxa", "axxxxa", "aaawd", "cvcd", "acccba"]));
+      
+
+
+</script>
+
+</body>
+</html>
