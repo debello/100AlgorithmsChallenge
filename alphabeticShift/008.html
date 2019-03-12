@@ -27,16 +27,18 @@
         let ABC = "abcdefghijklmnopqrstuvwxyz";
         let inputArray = inputString.split("");
         let strIndexes = inputArray.map((curr, ind, arr) =>
-            ABC.indexOf(curr)+1
+            // es el index 26 (index de z + 1)? lo convertimos en 0 (a)
+            ABC.indexOf(curr)+1 == 26 ? 0 : ABC.indexOf(curr)+1
         )
         console.log(strIndexes); // +1
         let newString = inputArray.map((val, ind, arr) =>
         ABC[strIndexes[ind]]
         )
         console.log(newString);
+        return newString.join("");
 }   
     console.log(alphabeticShift('abc'));
-    //console.log(alphabeticShift('crazy'));
+    console.log(alphabeticShift('crazy'));
 
 
 </script>
