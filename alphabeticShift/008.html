@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+    /*
+
+    Given a string, replace each its character by the next one in the English alphabet (z would be replaced by a).
+
+    **Example**
+
+    For inputString = "crazy", the output should be
+    alphabeticShift(inputString) = "dsbaz".
+
+    **Hints**
+
+    -   split()
+    -   indexOf()
+    -   join()
+
+
+    */
+
+    function alphabeticShift(inputString) {
+        let ABC = "abcdefghijklmnopqrstuvwxyz";
+        let inputArray = inputString.split("");
+        let strIndexes = inputArray.map((curr, ind, arr) =>
+            ABC.indexOf(curr)+1
+        )
+        console.log(strIndexes); // +1
+        let newString = inputArray.map((val, ind, arr) =>
+        ABC[strIndexes[ind]]
+        )
+        console.log(newString);
+}   
+    console.log(alphabeticShift('abc'));
+    //console.log(alphabeticShift('crazy'));
+
+
+</script>
+
+</body>
+</html>
