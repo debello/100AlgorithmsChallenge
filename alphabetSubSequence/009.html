@@ -26,15 +26,41 @@
     */
 
     function alphabetSubsequence(s) {
-
+        let count = 0;
+        
+        for (let i = 0; i< s.length; i++){
+            if (count < 1) { // Si el elemento i de s es menor o igual/charcode) que su siguiente
+                                // No hacemos nada. Si NO lo es, añadimos 1 a count
+                s.charCodeAt(i) <= s.charCodeAt(i+1) ? "" : count++;
+            }
+            else { // Si count es mayor que uno
+                return false;
+            }
+        }
+        return true;
     }
 
     console.log(alphabetSubsequence('zab'))
-    // console.log(alphabetSubsequence('effg'))
-    // console.log(alphabetSubsequence('cdce'))
-    // console.log(alphabetSubsequence('ace'))
-    // console.log(alphabetSubsequence('bxz'))
+    console.log(alphabetSubsequence('effg'))
+    console.log(alphabetSubsequence('cdce'))
+    console.log(alphabetSubsequence('ace'))
+    console.log(alphabetSubsequence('bxz'))
 
+    /*
+        // Devuelve Tsi un elemento es 1 charCode menos que su siguiente (si son cadena)
+        function alphabetSubsequence(s) {
+        let count = 0;
+        for (let i = 0; i< s.length; i++){
+            if (count < 1) {
+                s.charCodeAt(i) == s.charCodeAt(i+1) - 1 ? count : count++;
+            }
+            else { 
+                return false;
+            }
+        }
+        return true;
+    }
+    */
 
 
 
