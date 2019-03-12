@@ -27,28 +27,45 @@
 
     function alphabetSubsequence(s) {
         let count = 0;
-        
-        for (let i = 0; i< s.length; i++){
-            if (count < 1) { // Si el elemento i de s es menor o igual/charcode) que su siguiente
-                                // No hacemos nada. Si NO lo es, añadimos 1 a count
-                s.charCodeAt(i) <= s.charCodeAt(i+1) ? "" : count++;
-            }
-            else { // Si count es mayor que uno
-                return false;
-            }
-        }
-        return true;
+        let sb0 = s.split("");
+        //console.log(sb0);
+
+
+        let sb1 = sb0.map((val, ind, arr) => 
+            count > 1 ? false : 
+                s.charCodeAt(ind) <= s.charCodeAt(ind+1) ? count : count++
+        );
+        //console.log(sb1);
+        //console.log(count);
+
+        return count > 1 ? false : true;
+
+        // LO MISMO pero con for loop
+        //
+        // for (let i = 0; i< s.length; i++){
+        //     if (count < 1) { // Si el elemento i de s es menor o igual/charcode) que su siguiente
+        //                         No hacemos nada. Si NO lo es, añadimos 1 a count
+        //         s.charCodeAt(i) <= s.charCodeAt(i+1) ? "" : count++;
+        //     }
+        //     else { // Si count es mayor que uno
+        //         return false;
+        //     }
+        // }
+        // return true;
     }
 
-    console.log(alphabetSubsequence('zab'))
-    console.log(alphabetSubsequence('effg'))
-    console.log(alphabetSubsequence('cdce'))
-    console.log(alphabetSubsequence('ace'))
-    console.log(alphabetSubsequence('bxz'))
+    console.log('zab ' + alphabetSubsequence('zab'))
+    console.log('effg ' + alphabetSubsequence('effg'))
+    console.log('cdce ' + alphabetSubsequence('cdce'))
+    console.log('ace ' + alphabetSubsequence('ace'))
+    console.log('bxz ' + alphabetSubsequence('bxz'))
+    console.log('zbxz ' + alphabetSubsequence('zbxz'))
+    console.log('zb ' + alphabetSubsequence('zb'))
 
     /*
         // Devuelve Tsi un elemento es 1 charCode menos que su siguiente (si son cadena)
         function alphabetSubsequence(s) {
+
         let count = 0;
         for (let i = 0; i< s.length; i++){
             if (count < 1) {
