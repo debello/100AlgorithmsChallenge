@@ -15,24 +15,41 @@
     allLongestStrings(inputArray) = ["aba", "vcd", "aba"].
 
     */
-    function allLongestStrings(inArr) {
-    
-        let inArrLengths = inArr.map((curr, ind, arr) => 
-                                                    curr = inArr[ind].length) // crear y pasar [inArr] a [3, 2, 2, 3, 3]
-        let maxLength = Math.max(...inArrLengths); // Escoger el máximo (3)
-        //console.log(sb1, sb2); // [3, 2, 2, 3, 3] - 3
-        
-        let inArrMaxLength = inArr.filter((el) =>
-                                    el.length == maxLength);
-        //console.log(sb3);
 
-        return inArrMaxLength;
+    function allLongestStrings(inArr){
+        let maxLength = 0;
+        let maxString = [];
+        inArr.reduce((acc, val, ind, arr) => 
+            maxLength = maxLength < val.length ? val.length : maxLength
+        ) 
+        //console.log(maxLength);
+        inArr.map((val, ind, arr) => 
+            val.length === maxLength ? maxString.push(val) : ""
+        )
+        //console.log(maxString);
+        return 'Con la longitud de ' + maxLength + ' la(s) palabra(s) más larga(s): ' + 
+            maxString; 
     }
 
     console.log(allLongestStrings(["aba", "aa", "ad", "vcd", "aba"]));
     console.log(allLongestStrings(["abax", "xaa", "xxxad", "xvcd", "a"]));
     console.log(allLongestStrings(["abxxxa", "axxxxa", "aaawd", "cvcd", "acccba"]));
       
+
+//     Función antigua: Hace lo mismo pero usando Math.max. La función anterior es tipo sort     
+//     function allLongestStrings(inArr) {
+    
+//     let inArrLengths = inArr.map((curr, ind, arr) => 
+//                                                 curr = inArr[ind].length) // crear y pasar [inArr] a [3, 2, 2, 3, 3]
+//     let maxLength = Math.max(...inArrLengths); // Escoger el máximo (3)
+//     //console.log(sb1, sb2); // [3, 2, 2, 3, 3] - 3
+    
+//     let inArrMaxLength = inArr.filter((el) =>
+//                                 el.length == maxLength);
+//     //console.log(sb3);
+
+//     return inArrMaxLength;
+// }
 
 
 </script>
