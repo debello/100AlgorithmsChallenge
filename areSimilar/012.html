@@ -26,7 +26,8 @@
     - For a = [1, 2, 2] and b = [2, 1, 1], the output should be
     areSimilar(a, b) = false.
 
-    Any swap of any two elements either in a or in b won't make a and b equal.
+    Any swap of any two elements either in a or in b won't make a and b
+     equal.
 
     **Hints**
     -   toString()
@@ -34,23 +35,33 @@
     */
     function areSimilar(a, b) {
         let count = 0;
-        let bRev = b.reverse();
-        
+        let c = [];
+        let d = [];
+        // Si son exactamente iguales, devolvemos True
+        let sb1 =  a.map((val, ind, arr) => val != b[ind] ? count++: count)
+        if (count == 0) { return true;}
 
-        let sb1 = a.reduce((acc, val, ind, arr) => 
-            a[ind] != bRev[ind] ? count++: count
-        )
-        console.log(count);
-        console.log(bRev);
-        return a + ' and ' + b + ' are ' + (count > 0 ? false : true);
+        //console.log(sb1);
+        for (let i = 0; i<a.length;i++) {
+            if (a[i] != b[i]) {
+                c.push(a[i]);
+                d.push(b[i]);
+            }
+        }
+        //console.log(d);
+        d = d.reverse();
+        return  c.toString() == d.toString() ? true : false; 
+        //console.log(a);
+        //console.log(count);
+
     
     }
 
 
-    console.log(areSimilar([1, 2, 3], [1, 2, 3]));
-    console.log(areSimilar([1, 2, 3], [2, 1, 3]));
-    console.log(areSimilar([1, 2, 2], [2, 1, 1]));
-    console.log(areSimilar([1, 2, 3], [3, 2, 3]));
+    console.log(areSimilar([1, 2, 3], [1, 2, 3])); // true
+    console.log(areSimilar([1, 2, 3], [2, 1, 3])); // true
+    console.log(areSimilar([1, 2, 2], [2, 1, 1])); // false
+    console.log(areSimilar([1, 2, 3], [3, 2, 3])); // false
 
 
 
