@@ -18,12 +18,49 @@ arrayMaximalAdjacentDifference(inputArray) = 3.
 -   Math.abs()
 
     */
+    /*
+    el num de indice 0 menos su adyacente
+    el numero de indice 1 menos sus adyacentes
+    ...
+    if numMax < numdado then numMax = numdado else numMax
 
+    let newArr = 0;
+    let numMax = 0;
+    for (let i = 0; i<inputArray.length; i++){
+        if (inputArray[i+1]) {
+            numMax = Math.abs(inputArray[i] - inputArray[i+1];
+        }
+    }
+    */
     function arrayMaximalAdjacentDifference(inputArray) {
 
-    }
+        let numAdj = 0;
+        let numMax = 0;
+        for (let i = 0; i<inputArray.length; i++){
+            // si el siguiente array(sobretodo el último) existe
+            // O es 0 (si es 0 no dará FALSE osea notexist)
+            if (inputArray[i+1] || inputArray[i+1] == 0) {
+                numAdj = 0;
+                numAdj = Math.abs(inputArray[i] - inputArray[i+1]);
+                numMax = numMax > numAdj ? numMax : numMax = numAdj;
+                //console.log(numAdj);
 
-    console.log(arrayMaximalAdjacentDifference([2, 4, 1, 0]));
+            }
+        }
+        // return
+        //console.log(numMax);
+        //console.log(numAdj);
+        //console.log(Math.abs(0))
+        return numMax;
+
+    }
+    
+
+    console.log(arrayMaximalAdjacentDifference([2, 4, 8, 0]));
+    console.log(arrayMaximalAdjacentDifference([5, 2, 6, 7]));
+    console.log(arrayMaximalAdjacentDifference([1, 1, 9, 1]));
+    console.log(arrayMaximalAdjacentDifference([4, 2, 7, 9]));
+
 
 </script>
 
