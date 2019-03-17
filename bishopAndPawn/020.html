@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+    /*
+Given the positions of a white bishop and a black pawn on the standard chess board, 
+determine whether the bishop can capture the pawn in one move.
+
+The bishop has no restrictions in distance for each move, but is limited to diagonal 
+movement. Check out the example below to see how it can move:
+
+![](https://codefightsuserpics.s3.amazonaws.com/tasks/bishopAndPawn/img/bishop.jpg?_tm=1493360096740)
+
+**Example**
+
+- For bishop = "a1" and pawn = "c3", the output should be
+bishopAndPawn(bishop, pawn) = true.
+
+![](https://codefightsuserpics.s3.amazonaws.com/tasks/bishopAndPawn/img/ex1.jpg?_tm=1493360096945)
+
+**Hint**
+-   parseInt()
+
+
+    */
+
+    function bishopAndPawn(bishop, pawn) {
+    let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+    let numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+    let bishopLetter = bishop[0];
+    let bishopNum = parseInt(bishop[1]);
+    let moveLetter = [];
+    let moveNum = [];
+    let possi1 = [];
+    let possi2 = [];
+    let possi3 = [];
+    let possi4 = [];
+
+    // bishop se mueve: num + 1 o -1 && letra +1 o -1
+    // num+1 letra +-1
+    // letra num+-1
+    // funcion de los posibles moves del bishop
+    for (i = 0; i<letters.length; i++) {
+        // num: para el num dado (1) se puede mover del 0 al 7 sin contar con indexof1
+        bishopNum != numbers[i] ? moveNum.push(numbers[i]) : moveNum.push('X');
+        bishopLetter != letters[i] ? moveLetter.push(letters[i]) : moveLetter.push('X');
+    }
+    //Nuestra posicion en numero y letra
+    posNum = moveNum.indexOf('X');
+    posLett = moveLetter.indexOf('X');
+    console.log(posNum, posLett);
+    // Recordemos que tiene 4 direcciones posibles
+    
+    for (i = posLett; i<letters.length; i++) {
+        if( numbers[i] || letters[i]){
+            possi1.push(letters[i] + numbers[i]);
+        }
+    }
+    console.log(possi1);
+    console.log(typeof possi1)
+    console.log(moveNum);
+    console.log(moveLetter);
+    //console.log(possi1.hasOwnProperty("c3") ?  true : false)
+   
+    let sb3 = possi1.filter((val, ind, arr) => val == pawn ? true : false) //c3
+    return  String(sb3) === pawn ? true: false
+    //console.log (typeof sb3)
+    //console.log(typeof pawn)
+
+
+    //return sb3.hasOwnProperty(true) ? true : false;
+
+}
+
+console.log(bishopAndPawn('a1', 'c3'));
+
+</script>
+
+</body>
+</html>
