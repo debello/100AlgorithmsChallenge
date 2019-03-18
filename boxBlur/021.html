@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+    /*
+Last night you had to study, but decided to party instead. 
+Now there is a black and white photo of you that is about to 
+go viral. You cannot let this ruin your reputation, 
+so you want to apply box blur algorithm to the photo to 
+hide its content.
+
+The algorithm works as follows: each pixel x in the resulting 
+image has a value equal to the average value of the input 
+image pixels' values from the 3 × 3 square with the center 
+at x. All pixels at the edges are cropped.
+
+As pixel's value is an integer, all fractions 
+should be rounded down.
+
+**Example**
+
+For
+
+    image = [[1, 1, 1], 
+            [1, 7, 1], 
+            [1, 1, 1]]
+the output should be boxBlur(image) = [[1]].
+
+In the given example all boundary pixels were cropped, and 
+the value of the pixel in the middle was obtained as 
+(1 + 1 + 1 + 1 + 7 + 1 + 1 + 1 + 1) / 9 = 15 / 9 = 
+~rounded down~ = 1.
+
+**Hints**
+-   push()
+-   Math.floor()
+
+
+    */
+    function boxBlur(image) {
+        console.log(image)
+        // Math Floor + Image.map (select [1, 1, 1][1, 7...])
+        // val = val.reduce... (reduce [1, 1, 1] to 3 etc)
+        // .reduce (fuera de lo anterior)
+        // para sumar el array resultante [3, 9, 3]
+
+        // MAP REDUCE .REDUCE
+        let sb3 = Math.floor(image.map((val, ind, arr) =>
+        val = val.reduce((acc, val, ind, arr) => acc + val))
+            .reduce((acc, val) => acc+val) / 9);
+
+        console.log(sb3)
+        console.log(...image)
+        let sb4 = [...image].reduce((acc, val) => acc+val)
+        console.log(sb4)
+
+        // Idea 1 - Concept
+        // let sb1 = image.reduce((acc, val, ind, arr) =>
+        //       acc + val)
+        // let sb2 = image[0].reduce((acc, val, ind, arr) =>
+        //       acc + val)    
+        // console.log(sb1);
+        // console.log(sb2);
+        
+        // Idea 2
+        // let sb0 = image.map((val, ind, arr) =>
+        // val = val.reduce((acc, val, ind, arr) => acc + val))
+        
+        //OPCION 2: insertar ...images en un unico array
+        // MAP MAP REDUCE
+        let sb5 = [];
+        image.map((val, ind, arr) =>
+            val = val.map((val) => sb5.push(val)));
+        console.log(image)
+        let sb6 = sb5.reduce((acc, val) => acc+val)
+        console.log(sb5)
+        console.log(sb6) // 21, luego / 9 mathfloor... = 2
+
+}
+
+console.log(boxBlur([[1, 1, 1], 
+    [1, 7, 1], 
+    [1, 1, 1]]));
+
+console.log(boxBlur([[2, 2, 2], 
+    [2, 7, 1], 
+    [2, 2, 1]])); // 6 + 10 + 5 = 21 / 9 = 2.3.floor = 2
+
+
+
+</script>
+
+</body>
+</html>
