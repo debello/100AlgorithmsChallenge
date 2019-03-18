@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+    /*
+Given a string, check if it can become a palindrome through a case change of some 
+(possibly, none) letters.
+
+**Example**
+
+- For inputString = "AaBaa", the output should be
+isCaseInsensitivePalindrome(inputString) = true.
+
+"aabaa" is a palindrome as well as "AABAA", "aaBaa", etc
+
+- For inputString = "abac", the output should be
+isCaseInsensitivePalindrome(inputString) = false.
+
+All the strings which can be obtained via changing case of some group of letters, i.e. "abac", "Abac", "aBAc" and 13 more, are not palindromes.
+
+**Hints**
+-   join()
+-   reverse()
+-   toLowerCase()
+-   split()
+
+
+
+    */
+
+    function isCaseInsensitivePalindrome(inputString) {
+        let newInput = inputString.toLowerCase().split('');
+        let revInput = [...newInput].reverse();
+        //console.log(newInput);
+        //console.log(revInput);
+
+        // Convertimos cada elem en 0 o 1 si ambas strings/arrays coinciden o no
+        let count = newInput.map((val, ind, arr) => 
+                val === revInput[ind] ? 0 : 1).reduce((acc, val, ind, arr) =>
+            acc + val)
+        //console.log(count); // if 0 = es palindromo, if not...
+        return count > 0 ? false : true;
+}   
+
+
+console.log(isCaseInsensitivePalindrome('AaBaa'));
+console.log(isCaseInsensitivePalindrome('abac'));
+
+</script>
+
+</body>
+</html>

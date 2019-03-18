@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+    /*
+Given a year, return the century it is in. The first century spans from the year 
+1 up to and including the year 100, the second - from the year 101 up to and 
+including the year 200, etc.
+
+**Example**
+
+- For year = 1905, the output should be
+centuryFromYear(year) = 20;
+- For year = 1700, the output should be
+centuryFromYear(year) = 17.
+
+**Hints**
+-   Math.floor()
+
+
+
+    */
+    function centuryFromYear(year) {
+        // Si el num tiene 4 digitos, sumamos 100. Si tiene 3, sumamos 100. Tiene 2, +100
+        let numSiglo = Math.floor((year + 100) / 100);
+        //console.log(numSiglo);
+        return numSiglo + 'th Century.';
+
+
+
+
+
+        console.log(typeof yearStr, yearStr);
+        console.log(newStr);
+        //console.log(newStr2);
+
+}
+
+console.log(centuryFromYear(1905));
+console.log(centuryFromYear(1700));
+console.log(centuryFromYear(1699));
+console.log(centuryFromYear(699));
+console.log(centuryFromYear(99));
+console.log(centuryFromYear(9));
+
+    // Buena idea. Cambiar Int a Str. Quitar dos últimos números... etc
+    // Pero se hace más rápido con una cuenta matemática
+    //
+    //let yearStr = year.toString();
+    //let newStr = yearStr.slice(0, -2);
+    // let newStr = 
+    //     yearStr.length == 4 ? parseInt(yearStr.slice(0, -2)) + 10 : 
+    //         yearStr.length == 3 ? yearStr.slice(0, -1) :
+    //             yearStr.length <= 2 ? yearStr : 'Insertar una fecha de 1 a 4 dígitos';
+    
+
+</script>
+
+</body>
+</html>
