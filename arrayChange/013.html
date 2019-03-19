@@ -20,42 +20,32 @@
     // Array1 (1, 1, 1)
     // if arr[1] != arr[0] + 1 then arr[0] + 1 
     // if arr[2] != arr[1] + 1 then arr[1] + 1 
-
     // with Charcode??? atCharCode(1)
 
     function arrayChange(inputArray){
         count = 0;
 
         for (let i = 0; i < inputArray.length; i++){
-
             while (inputArray[i+1] <= inputArray[i]){
                 inputArray[i+1]++;
                 count++;
             }
-
         }
-        console.log(inputArray);
-        console.log(count);
-
-        // let sb1 = inputArray.map((val, ind, arr) =>
-        //     val = arr[ind] <= arr[ind-1] ?  val + 1  : arr[ind]
-                
-        // )
-        //console.log(sb1)
-    
-
-}
-
+        // console.log(inputArray);
+        // console.log(count);
+        return count;
+    }
 
     console.log(arrayChange([1, 1, 1]));
     console.log(arrayChange([1, 2, 2]));
     console.log(arrayChange([1, 1, 1, 1, 1]));
+    console.log(arrayChange([5, 4, 3, 1, 1]));
     // Usar números iguales o cercanos (por una unidad)
     // ex 1, 1, 1 - 2, 3, 4 - 2, 2, 3...
     // [!] No - 2, 2, 4 - 2 3 6...
 
 
-
+    // * IDEA DESECHADA *
     // Hecho. Pero vamos a optimizarlo más sin especificar index
     // y/o usando uno o ningún while
     //
