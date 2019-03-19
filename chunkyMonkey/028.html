@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+    /*
+Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+
+**Example**
+-   chunkyMonkey(["a", "b", "c", "d"], 2) should return [["a", "b"], ["c", "d"]].
+-   chunkyMonkey([0, 1, 2, 3, 4, 5], 4) should return [[0, 1, 2, 3], [4, 5]].
+
+**Hints**
+-   slice()
+
+
+    */
+    function chunkyMonkey(arr, size) {
+        let newArr = [];
+        let sb1 = [];
+        let sb2 = [];
+        let sb3 = [];
+        // map .push .map -> if ind < 2 (o size escogido)
+        sb1 = arr.slice(0, size); // a, b
+        sb2 = arr.slice(size, arr.length); // c, d
+
+        sb3.push(sb1);
+        sb3.push(sb2);
+        //console.log(arr);
+        
+        console.log(sb1);
+        console.log(sb2);
+        console.log(sb3); // [[a, b][c, d]]
+        //let sbtest = [[1, 2, 3, 4], [5, 6]];
+        //console.log(sbtest)
+        return sb3;
+
+}
+
+console.log(chunkyMonkey(["a", "b", "c", "d"], 2));
+console.log(chunkyMonkey([0, 1, 2, 3, 4, 5], 4));
+console.log(chunkyMonkey([0, 1, 2, 3, 4, 5, 6, 7, 8], 5));
+
+
+</script>
+
+</body>
+</html>
