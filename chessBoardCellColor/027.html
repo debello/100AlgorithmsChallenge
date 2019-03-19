@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+        <p id="demo"></p>
+<script>
+    /*
+Given two cells on the standard chess board, determine whether they have the same color or not.
+
+**Example**
+
+- For cell1 = "A1" and cell2 = "C3", the output should be
+chessBoardCellColor(cell1, cell2) = true.
+
+![](https://codefightsuserpics.s3.amazonaws.com/tasks/chessBoardCellColor/img/example1.png?_tm=1494338560912);
+
+- For cell1 = "A1" and cell2 = "H3", the output should be
+chessBoardCellColor(cell1, cell2) = false.
+
+![](https://codefightsuserpics.s3.amazonaws.com/tasks/chessBoardCellColor/img/example2.png?_tm=1494338561188)
+
+**Hints**
+-   parseInt()
+
+
+    */
+
+    // negras: x e y son impares || x e y son pares  
+    function chessColor(a, b) {
+        if (a == undefined || b == undefined) {
+            return 'Valor incorrecto, intentelo de nuevo[!]';
+        }
+        if (a.match(/[^0-9]$/) || a.length != 2 || b.match(/[^0-9]$/) || b.length != 2) {
+            return 'Valor incorrecto, intentelo de nuevo[!]';
+        }
+        if (a.match(/^[^a-hA-H]/) || b.match(/^[^a-hA-H]/)) {
+            return 'Valor incorrecto, intentelo de nuevo[!]';
+        }
+
+        let letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; // Coord X
+        let numeros = ['1', '2', '3', '4', '5', '6', '7', '8']; // Coord Y
+
+        let newInputA = a.split('');
+        let newInputB = b.split('');
+        // console.log(newInputA);
+        // console.log(newInputB);
+        let coorXA = letras.indexOf(newInputA[0]);
+        let coorYA = numeros.indexOf(newInputA[1]);
+        let coorXB = letras.indexOf(newInputB[0]);
+        let coorYB = numeros.indexOf(newInputB[1]);
+        // console.log(coorXA);
+        // console.log(coorYA);
+        // console.log(coorXB);
+        // console.log(coorYB);
+
+        let colorA = coorXA % 2 == 0 & coorYA % 2 == 0 ? 'negra' : 'blanca';
+        let colorB = coorXB % 2 == 0 & coorYB % 2 == 0 ? 'negra' : 'blanca';
+
+        let resultado =  colorA == colorB ? ' son ' + colorA +'s' : ' son de diferentes color';
+        return a + ' y ' + b + resultado;
+    }
+
+    console.log(chessColor('a1', 'b1'));
+    console.log(chessColor('b1', 'c4'));
+    console.log(chessColor('g1', 'h1'));
+    console.log(chessColor('g8', 'd5'));
+
+    // Valores incorrectos para testear.
+    console.log(chessColor('8g'));
+    console.log(chessColor('hg'));
+    console.log(chessColor('zz'));
+    console.log(chessColor('1z'));
+    console.log(chessColor('z1'));
+    console.log(chessColor('11'));
+    console.log(chessColor('111'));
+    console.log(chessColor('..'));
+
+
+
+
+    // Solución correcta con una sola casilla.
+    // Dice el color de la casilla señalada 
+    //
+    // function chessColor(a) {
+    //     if (a.match(/[^0-9]$/) || a.length != 2 ) {
+    //         return 'Valor incorrecto, intentelo de nuevo[!]';
+    //     }
+    //     if (a.match(/^[^a-h]/)) {
+    //         return 'Valor incorrecto, intentelo de nuevo[!]';
+    //     }
+
+    //     let letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; // Coord X
+    //     let numeros = ['1', '2', '3', '4', '5', '6', '7', '8']; // Coord Y
+
+    //     let newInput = a.split('');
+    //     console.log(newInput);
+    //     if (newInput[1] >= 0 && newInput[1] <= 8) {
+            
+    //     }
+    //     else { 
+    //         return 'Valor incorrecto, intentelo de nuevo[!!]';
+    //     }
+
+    //     let coorX = letras.indexOf(newInput[0]);
+    //     let coorY = numeros.indexOf(newInput[1]);
+    //     console.log(coorX);
+    //     console.log(coorY)
+
+
+    //     return coorX % 2 == 0 & coorY % 2 == 0 ? 'is black' : 'is white';
+
+    // }
+</script>
+
+</body>
+</html>
