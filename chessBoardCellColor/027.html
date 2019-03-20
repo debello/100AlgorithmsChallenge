@@ -43,16 +43,11 @@ chessBoardCellColor(cell1, cell2) = false.
 
         let newInputA = a.split('');
         let newInputB = b.split('');
-        // console.log(newInputA);
-        // console.log(newInputB);
+
         let coorXA = letras.indexOf(newInputA[0]);
         let coorYA = numeros.indexOf(newInputA[1]);
         let coorXB = letras.indexOf(newInputB[0]);
         let coorYB = numeros.indexOf(newInputB[1]);
-        // console.log(coorXA);
-        // console.log(coorYA);
-        // console.log(coorXB);
-        // console.log(coorYB);
 
         let colorA = coorXA % 2 == 0 & coorYA % 2 == 0 ? 'negra' : 'blanca';
         let colorB = coorXB % 2 == 0 & coorYB % 2 == 0 ? 'negra' : 'blanca';

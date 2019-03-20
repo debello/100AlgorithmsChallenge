@@ -29,9 +29,7 @@ checkPalindrome(inputString) = true.
     function checkPalindrome(inputString) {
         
         let revString = inputString.split('').reverse().join('');
-        return inputString.localeCompare(revString) == 0 ? 'is a palindrome' : 'is NOT a palindrome';
-        console.log(inputString);
-        console.log(revString);
+        return inputString === revString;
 
 }
 

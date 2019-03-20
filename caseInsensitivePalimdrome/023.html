@@ -32,17 +32,9 @@ All the strings which can be obtained via changing case of some group of letters
     */
 
     function isCaseInsensitivePalindrome(inputString) {
-        let newInput = inputString.toLowerCase().split('');
-        let revInput = [...newInput].reverse();
-        //console.log(newInput);
-        //console.log(revInput);
-
-        // Convertimos cada elem en 0 o 1 si ambas strings/arrays coinciden o no
-        let count = newInput.map((val, ind, arr) => 
-                val === revInput[ind] ? 0 : 1).reduce((acc, val, ind, arr) =>
-            acc + val)
-        //console.log(count); // if 0 = es palindromo, if not...
-        return count > 0 ? false : true;
+        inputString = inputString.toLowerCase();
+        let reverseInput = inputString.split('').reverse().join('');
+        return inputString === reverseInput;
 }   
 
 
